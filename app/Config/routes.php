@@ -35,7 +35,7 @@
 	Router::connect('/onde', array('controller' => 'pages', 'action' => 'display', 'como-chegar'));        
 	Router::connect('/sobre', array('controller' => 'pages', 'action' => 'display', 'sobre-o-evento'));
         Router::connect('/obrigada', array('controller' => 'pages', 'action' => 'display', 'agradecimento'));
-        Router::connect('/inscricao', array('controller' => 'Inscricoes', 'action' => 'inscrever'));
+        Router::connect('/inscricao', array('controller' => 'Inscricoes'));
         Router::connect('/palestras', array('controller' => 'Palestras', 'action' => 'index'));
         Router::connect('/palestrantes', array('controller' => 'Palestrantes', 'action' => 'index'));        
         Router::connect('/palestrantes/:nome/:id', array(

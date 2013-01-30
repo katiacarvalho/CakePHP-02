@@ -42,7 +42,7 @@ $cakeDescription = __d('cake_dev', 'CIM');
             <img src="\img\logo-farmacia.jpg" border="0"></img>
         </div>
         <div id="container">            
-            <?php echo $this->element('sidebar-left')?>                
+         <!--   <?php echo $this->element('sidebar-left')?>                -->
             <?php echo $this->element('conteudo')?>                
         </div>
     </div>
