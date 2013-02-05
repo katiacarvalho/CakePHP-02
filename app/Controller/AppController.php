@@ -32,4 +32,17 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    
+    protected function _isPrefix($prefix) {
+        
+        return isset($this->params['prefix']) && $this->params['prefix'] === $prefix;
+        
+    }
+    
+    public function beforeFilter() {
+        if ($this->_isPrefix('painel')) {
+            $this->layout = 'painel';
+        }
+        parent::beforeFilter();
+    }
 }
