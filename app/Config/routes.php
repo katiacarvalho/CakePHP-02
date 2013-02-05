@@ -42,7 +42,7 @@
             'controller' => 'Palestrantes', 'action' => 'view'), array(
             'pass' => array('id'), //passa o id para a action | lista de valores da url que estar passando para a action
             'id' => '[0-9]+' ) );
-        
+        //Router::connect('/painel', array('controller' => '', 'action' => ''));
 /**
  * Load all plugin routes.  See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

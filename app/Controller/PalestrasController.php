@@ -2,7 +2,7 @@
 
 class PalestrasController extends AppController{
     
-    public $scaffold;   
+    public $scaffold = 'painel';   
     
 }
 ?>

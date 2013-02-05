@@ -2,7 +2,7 @@
 
 class InscricoesController extends AppController{
     
-    public $scaffold;
+    public $scaffold = 'painel';
     
 }
 ?>
