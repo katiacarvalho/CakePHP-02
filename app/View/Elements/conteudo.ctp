@@ -19,5 +19,6 @@
 
 <div id="session">
    <?php echo $this->Session->flash(); ?>
+   <!--<?php echo $this->fetch(loginAuth);?>-->
    <?php echo $this->fetch('content'); ?>
 </div>

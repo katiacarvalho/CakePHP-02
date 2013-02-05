@@ -1,5 +1,7 @@
 <?php
 
+App::uses('AuthComponent', 'Controller/Component');
+
 class Usuario extends AppModel{
     
     public $order = array('nome' => 'ASC');
@@ -23,10 +25,35 @@ class Usuario extends AppModel{
             ),
             array(
                 'rule' => 'notEmpty',
-                'message' => 'Informe seu email'
+                'message' => 'Informe sua senha'
             )            
         ),
-        ''
-    );    
+        'confirma_senha' => array(
+            'required'=>'notEmpty',
+            'match'=>array(
+                'rule' => 'validatePasswdConfirm',
+                'message' => 'Passwords do not match'
+            )
+        )
+    );
+    
+    public function validatePasswdConfirm() {
+        if ($this->data['Usuario']['senha'] !== $this->data['Usuario']['confirma_senha']) {
+            return false;
+        }
+        return true;
+    }
+    
+    public function beforeSave($options = array()) {
+        
+        if($this->data['Usuario']['senha'] != 'notEmpty'){
+            if(isset($this->data['Usuario']['senha'])){
+                $password = &$this->data['Usuario']['senha'];
+                $password = AuthComponent::password($password);
+            }
+        }
+        
+        parent::beforeSave($options);
+    }
 }
 ?>
