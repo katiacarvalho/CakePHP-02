@@ -30,7 +30,7 @@ class Usuario extends AppModel{
                 'message' => 'O login informado já existe'
             )
         ),
-        'senha' => array(            
+        'senha'=>array(
             array(
                 'rule' => array('minLength', 6),
                 'message' => array('Informe no minímo 6 caracteres')
@@ -38,7 +38,7 @@ class Usuario extends AppModel{
             array(
                 'rule' => 'notEmpty',
                 'message' => 'Informe sua senha'
-            )            
+            )              
         ),
         'confirma_senha' => array( //by William
             'required'=>'notEmpty',
