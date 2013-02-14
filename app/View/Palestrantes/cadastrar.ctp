@@ -1,3 +1,4 @@
+<?php echo $this->Html->link('Retornar', array('controller' => 'Palestrantes', 'action' => 'index')); ?>
 <?php
     echo $this->Form->create('Palestrante', array('action' => 'cadastrar'));
     echo $this->Form->input('nome');

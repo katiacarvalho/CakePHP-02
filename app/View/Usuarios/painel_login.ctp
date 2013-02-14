@@ -5,7 +5,8 @@ echo $this->Session->flash('auth');
 
 echo $this->Form->create('Usuario');
 echo $this->Form->input('Login');
-echo $this->Form->input('Senha');
-echo $this->Form->end('Entrar');
+echo $this->Form->input('Senha',array('type'  =>  'password'));
+echo $this->Form->input('Confirmar Senha',array('type'  =>  'password'));
+echo $this->Form->end('Acessar');
 
 ?>

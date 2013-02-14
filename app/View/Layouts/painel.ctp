@@ -19,7 +19,7 @@
 	?>
 </head>
 <body>
-    <?php echo $this->element('topo')?>
+    <?php echo $this->element('topo')?>    
     <div id="corpo">
         <div id="banner">
             <img src="\img\logo-farmacia.jpg" border="0"></img>

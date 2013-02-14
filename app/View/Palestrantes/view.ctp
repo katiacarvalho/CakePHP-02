@@ -5,5 +5,3 @@
 <a href="http://<?php echo $site ?>"><?php echo $site; ?></a><br/>
 <br/>
 <h1><?php echo ($palestrante['Palestrante']['descricao']); ?></h1> 
-
-<!--dentro da view tem: $palestrante ['Palestrante']['nome']-->

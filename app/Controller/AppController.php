@@ -60,10 +60,8 @@ class AppController extends Controller {
         if ($this->_isPrefix('painel')) 
             $this->layout = 'painel';
         if (!$this->_isPrefix('painel'))
-            $this->Auth->allow();
-        
+            $this->Auth->allow();   
                
-        
         parent::beforeFilter();
     }
 }

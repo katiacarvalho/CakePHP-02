@@ -6,23 +6,35 @@ class UsuariosController extends AppController{
     
     public function painel_login(){
         
-        //se estiver logado redireciona pra home_login
-//        if($this->Session->check('Auth.User.id')){
-//            $this->redirect(array('controller' => 'usuarios', 'action' => 'profile', 'painel' => true));
-//        }
-        
-        //$this->layout = 'login';
-        
-        if($this->Auth->login()){
-            $this->redirect($this->Auth->redirect());
-        }
-        else{
-            $this->Session->setFlash('Dados incorretos');
-        }  
+        if($this->request->isPost()){
+            if($this->Auth->login())
+                $this->redirect($this->Auth->redirect());
+            else
+                $this->Session->setFlash('Dados incorretos');      
+        }        
     }
     
     public function painel_logout(){
-        $this->redirect($this->Auth->logout());
+        
+        $this->Auth->logout();
+        $this->redirect('/');
+    }
+    
+    public function painel_view(){
+        
+    }
+    
+    public function painel_add() {
+        
+         if($this->request->isPost()) {
+            $this->Usuario->create();
+            if ($this->Usuario->save($this->request->data)) {
+                $this->Session->setFlash('Usuário cadastrado com sucesso');
+            }
+            else
+                $this->Session->setFlash('Usuário não cadastrado');
+         }  
     }
 }
 ?>
+<!--$this->redirect(array('controller' => 'Palestras' , 'action' => 'index'));-->
