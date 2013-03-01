@@ -33,20 +33,32 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     
-    public $components = array('Session','Auth');
+    public $components = array('Session','Auth' => array(
+        'loginRedirect' => array(
+            'controller' => 'usuarios',
+            'action' => 'painel_view'
+        )));
     
     protected function _isPrefix($prefix) {
         
         return isset($this->params['prefix']) && $this->params['prefix'] === $prefix;
         
     }
-    
+  
     public function beforeFilter() {
+        
+        parent::beforeFilter();        
+        $this->Auth->allow(array('painel_add'));
+        
+        if ($this->_isPrefix('painel')) 
+            $this->layout = 'painel';
+        if (!$this->_isPrefix('painel'))
+            $this->Auth->allow();
         
         $this->Auth->authenticate = array('Form' => array(
             'userModel' => 'Usuario',
             'fields' => array(
-                'username' => 'usuario',
+                'username' => 'login',
                 'password' => 'senha'
             )
         ));
@@ -55,13 +67,8 @@ class AppController extends Controller {
             'controller' => 'usuarios',
             'action' => 'login',
             'painel' => true
-        );
-        
-        if ($this->_isPrefix('painel')) 
-            $this->layout = 'painel';
-        if (!$this->_isPrefix('painel'))
-            $this->Auth->allow();   
+        ); 
                
-        parent::beforeFilter();
+       return parent::beforeFilter();
     }
-}
+}     

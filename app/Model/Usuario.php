@@ -56,7 +56,7 @@ class Usuario extends AppModel{
         return true;
     }
     
-    public function beforeSave($options = array()) {
+    public function beforeSave($options = array()) { //encriptar senha
         
         //if($this->data['Usuario']['senha'] != 'notEmpty'){
             if(isset($this->data['Usuario']['senha'])){
@@ -65,7 +65,7 @@ class Usuario extends AppModel{
             }
       //  }
         
-        parent::beforeSave($options);
+        return parent::beforeSave($options);
     }
 }
 ?>

@@ -17,7 +17,7 @@ class PalestrantesController extends AppController{
         $this->set('palestrante', $dados);
     }
     
-    public function cadastrar(){
+    public function inscrever(){
         
         $isPost = $this->request->isPost();      
       

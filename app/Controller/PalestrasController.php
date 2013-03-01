@@ -10,7 +10,7 @@ class PalestrasController extends AppController{
         $this->set('palestras', $palestras);                        
     } 
     
-    public function cadastrar(){
+    public function inscrever(){
         
         if ($this->request->isPost()){
             $this->Palestra->create();
@@ -20,6 +20,9 @@ class PalestrasController extends AppController{
             else
                 $this->Session->setFlash('Palestra não cadastrada');              
         }
+        
+        $palestrantes = $this->Palestra->Palestrante->find('list', array('fields' => array ('id','nome'))); // é o q faz aparecer a lista de palestrante na view de palestra
+        $this->set(compact('palestrantes'));
     }
 }
 ?>
