@@ -7,9 +7,9 @@
       <li><?php echo $this->Html->link('Palestras', '/palestras');?></li>            
       <li><?php echo $this->Html->link('Palestrantes', '/palestrantes');?></li>
       <?php if($this->Session->check('Auth.User.id')){?>
-            <li><?php echo $this->Html->link('Logout', array('controller' => 'usuarios', 'action' => 'painel_logout'))?></li>
+            <li><?php echo $this->Html->link('Logout','/painel/usuarios/logout')?></li>
       <?php } else {?>
-                <li><?php echo $this->Html->link('Login', array('controller' => 'usuarios', 'action' => 'painel_login'))?></li>
+                <li><?php echo $this->Html->link('Login', '/painel/usuarios/login')?></li>
             <?php }?>
       <!--<?php if($this->Session->check('Auth.User.id')){?>
             <li><?php echo $this->Html->link('a', array('controller' => 'usuarios', 'action' => 'painel_logout'))?></li>
@@ -18,3 +18,4 @@
             <?php }?>-->
     </ul>
 </div>
+<!--link('Logout', array('controller' => 'usuarios', 'action' => 'logout')-->

@@ -20,7 +20,7 @@
     <li><p>Usuários</p><br/>
         <ul>
             <li><?php echo $this->Html->link('Listar', array('controller' => 'usuarios', 'action' => 'index'))?></li>
-            <li><?php echo $this->Html->link('Cadastrar', array('controller' => 'usuarios', 'action' => 'painel_add'))?></li><br/>
+            <li><?php echo $this->Html->link('Cadastrar', array('controller' => 'usuarios', 'action' => 'add'))?></li><br/>
         </ul>
     </li>
 </ul>
